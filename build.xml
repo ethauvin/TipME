@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <project name="TipME" default="build" basedir=".">
 	<taskdef resource="antenna.properties"/>
 
 	<property environment="env"/>
-	<property name="wtk.home" value="${env.WTK2_HOME}"/>
+	<property name="wtk.home" value="${env.WTK_HOME}"/>
 	<property name="wtk.midp.version" value="2.0"/>
 	<property name="wtk.cldc.version" value="1.0"/>
 	<property name="path.build" value="build"/>
