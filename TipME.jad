@@ -1,0 +1,10 @@
+MIDlet-1: TipME,/tipme.png,net.thauvin.j2me.tipme.TipME
+MIDlet-Jar-URL: TipME.jar
+MIDlet-Icon: /tipme.png
+MicroEdition-Configuration: CLDC-1.0
+MIDlet-Version: 0.1.0
+MIDlet-Vendor: Erik C. Thauvin
+MIDlet-Name: TipME
+MIDlet-Description: TipME
+MIDlet-Info-URL: http://www.thauvin.net/erik/j2me/
+MicroEdition-Profile: MIDP-2.0

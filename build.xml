@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="TipME" default="build" basedir=".">
+	<taskdef resource="antenna.properties"/>
+
+	<property environment="env"/>
+	<property name="wtk.home" value="${env.WTK2_HOME}"/>
+	<property name="wtk.midp.version" value="2.0"/>
+	<property name="wtk.cldc.version" value="1.0"/>
+	<property name="path.build" value="build"/>
+	<property name="path.classes" value="${path.build}/classes"/>
+	<property name="path.src" value="src"/>
+	<property name="path.res" value="res"/>
+	<property name="path.deploy" value="deployed"/>
+	
+	<target name="init">
+		<tstamp/>
+		<mkdir dir="${path.build}"/>
+		<mkdir dir="${path.deploy}"/>
+	</target>
+	
+	<target name="compile" depends="init" description="Compiles sources">
+		<mkdir dir="${path.classes}"/>
+		<wtkbuild srcdir="${path.src}" destdir="${path.classes}" preverify="false"/>
+	</target>
+	
+	<target name="jar" depends="compile" description="Builds the jar">
+		<copy todir="${path.deploy}" file="${ant.project.name}.jad"/>
+		<wtkpackage jarfile="${path.deploy}/${ant.project.name}.jar"
+					jadfile="${path.deploy}/${ant.project.name}.jad"
+					obfuscate="true"
+					preverify="true">
+			<fileset dir="${path.classes}"/>
+			<fileset dir="${path.res}" includes="*.png"/>
+		</wtkpackage>
+	</target>
+	
+	
+	<target name="run" description="Execute the program">
+		<wtkrun jadfile="${path.deploy}/${ant.project.name}.jad" device="DefaultColorPhone" wait="true"/>
+	</target>
+	
+	<target name="build" depends="jar" description="Rebuilds project"/>
+	
+	<target name="clean" depends="init" description="Removes classses and javadoc">
+		<delete quiet="true" includeEmptyDirs="true">
+			<fileset dir="${path.build}" includes="*,*/**"/>
+		</delete>
+	</target>
+</project>
