@@ -104,12 +104,12 @@ public class TipME extends MIDlet implements CommandListener
 	private Display display;
 
 	/**
-	 * DOCUMENT ME!
+	 * The main screen.
 	 */
 	private /* final */ MainScreen mainScreen;
 
 	/**
-	 * DOCUMENT ME!
+	 * The result screen.
 	 */
 	private /* final */ ResultScreen resultScreen;
 	private int billTotal = 0;
